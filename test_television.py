@@ -28,3 +28,8 @@ def test_channel_up():
     tv.channel_up()
     tv.channel_up()  # wrap around
     assert str(tv) == "Power = True, Channel = 0, Volume = 0"
+def test_channel_down():
+    tv = Television()
+    tv.power()
+    tv.channel_down()  # wrap from 0 to MAX_CHANNEL
+    assert str(tv) == "Power = True, Channel = 3, Volume = 0"
