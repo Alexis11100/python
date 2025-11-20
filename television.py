@@ -46,7 +46,9 @@ class Television:
             if self.__volume > Television.MIN_VOLUME:
                 self.__volume -= 1
     def __str__(self):
-        print(f"Power = {self.__status}, Channel = {self.__channel}, Volume = {self.__volume}")
+        volume_display = 0 if self.__muted else self.__volume
+        return f"Power = {self.__status}, Channel = {self.__channel}, Volume = {volume_display}"
+
 
 
 
