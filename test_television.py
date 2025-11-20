@@ -19,3 +19,12 @@ def test_mute():
     assert str(tv) == "Power = True, Channel = 0, Volume = 0"  # muted shows volume 0
     tv.mute()
     assert str(tv) == "Power = True, Channel = 0, Volume = 1"  # unmuted restores volume
+def test_channel_up():
+    tv = Television()
+    tv.power()
+    tv.channel_up()
+    assert str(tv) == "Power = True, Channel = 1, Volume = 0"
+    tv.channel_up()
+    tv.channel_up()
+    tv.channel_up()  # wrap around
+    assert str(tv) == "Power = True, Channel = 0, Volume = 0"
