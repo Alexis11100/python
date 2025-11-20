@@ -41,3 +41,13 @@ def test_volume_up():
     tv.volume_up()
     tv.volume_up()  # stays at MAX_VOLUME
     assert str(tv) == "Power = True, Channel = 0, Volume = 2"
+def test_volume_down():
+    tv = Television()
+    tv.power()
+    tv.volume_up()
+    tv.volume_up()
+    tv.volume_down()
+    assert str(tv) == "Power = True, Channel = 0, Volume = 1"
+    tv.volume_down()
+    tv.volume_down()  # stays at MIN_VOLUME
+    assert str(tv) == "Power = True, Channel = 0, Volume = 0"
